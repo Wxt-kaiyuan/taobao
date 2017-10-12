@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        .box{
+            width:305px;
+            height:255px;
+            margin:100px auto;
+            position:relative;
+        }
+        .zuo,{
+            width:50px;
+            height:250px;
+            position:absolute;
+            top:0;
+            left:0;
+            z-index: 99;
+        }
+        .img{
+            width:200px;
+            height:250px;
+            margin:0 auto;
+            border-top:1px solid #c00;
+            border-bottom:1px solid #c00;
+            overflow:hidden;
+            position:absolute;
+            top:0;
+            left:52px;
+        }
+        .you{
+            width:50px;
+            height:250px;
+            position:absolute;
+            top:0;
+            left:250px;
+        }
+        .zuo>li,.you>li{
+            width:50px;
+            height:26px;
+            line-height: 26px;
+            text-align:center;
+            border:1px solid #c00;
+            background:url(img/lili.jpg);
+            cursor:pointer;
+        }
+        .zuo>li:hover,.you>li:hover{
+            background:url(img/abg.gif);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="zuo"></ul>
+    <ul class="img"></ul>
+    <ul class="you"></ul>
+</div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.js"></script>
+<script>
+    $(function(){
+        var data=[
+            {src:'img/冬裙.jpg'},
+            {src:'img/呢大衣.jpg'},
+            {src:'img/围巾.jpg'},
+            {src:'img/女包.jpg'},
+            {src:'img/女裤.jpg'},
+            {src:'img/女靴.jpg'},
+            {src:'img/棉服.jpg'},
+            {src:'img/毛衣.jpg'},
+            {src:'img/牛仔裤.jpg'},
+            {src:'img/男包.jpg'},
+            {src:'img/男棉服.jpg'},
+            {src:'img/男毛衣.jpg'},
+            {src:'img/男靴.jpg'},
+            {src:'img/登山鞋.jpg'},
+            {src:'img/皮带.jpg'} ,
+            {src:'img/皮衣.jpg'},
+            {src:'img/羽绒服.jpg'},
+            {src:'img/雪地靴.jpg'}
+        ];
+        var datd=[
+            {text:'冬裙'},
+            {text:'呢大衣'},
+            {text:'围巾'},
+            {text:'女包'},
+            {text:'女裤'},
+            {text:'女靴'},
+            {text:'棉服'},
+            {text:'毛衣'},
+            {text:'牛仔裤'}
+        ];
+        var datt=[
+            {text:'男包'},
+            {text:'男棉服'},
+            {text:'男毛衣'},
+            {text:'男靴'},
+            {text:'登山鞋'},
+            {text:'皮带'},
+            {text:'皮衣'},
+            {text:'羽绒服'},
+            {text:'雪地靴'}
+        ];
+        var str='';
+        var std='';
+        var stt='';
+        for(var i=0;i<data.length;i++) {
+            str += '<li>';
+            str += '<img src="' + data[i].src + '">';
+            str += '</li>';
+        }
+        $('.img').html(str);
+        for(var i=0;i<datd.length;i++) {
+            std += '<li>';
+            std += '' + datd[i].text + '';
+            std += '</li>';
+        }
+        $('.zuo').html(std);
+        for(var i=0;i<datt.length;i++){
+            stt+='<li>';
+            stt+=''+datt[i].text+'';
+            stt+='</li>';
+        }
+        $('.you').html(stt);
+
+//        $('.img>li').eq(0).show().siblings().hide();
+        $('.zuo>li').mouseover(function(){
+            $('.img>li').eq($(this).index()).show().siblings().hide();
+        });
+        $('.you>li').mouseover(function(){
+            $('.img>li').eq($(this).index()+9).show().siblings().hide();
+        })
+
+
+
+    })
+
+</script>
+</html>
